@@ -4,6 +4,7 @@
   "description": "A Vue.js project",
   "author": "liusong <347139089@qq.com> (http://blog.liusong.vip/)",
   "license": "MIT",
+  "main": "src/plugins/editer/index.js",
   "scripts": {
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
