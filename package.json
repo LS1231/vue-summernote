@@ -1,7 +1,7 @@
 {
   "name": "vue-summernote",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "A Vue integration summernote rich text plugin",
   "author": "liusong <347139089@qq.com> (http://blog.liusong.vip/)",
   "license": "MIT",
   "main": "src/plugins/editer/index.js",
