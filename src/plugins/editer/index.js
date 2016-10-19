@@ -1,26 +1,51 @@
 var $ = require('jquery')
 require('summernote')
 require('summernote/dist/lang/summernote-zh-CN.min.js')
-require('summernote/dist/summernote.css')
-
 exports.install = function (Vue, options) {
   Vue.component('vue-summernote', {
     render: function (createElement) {
       return createElement('div')
     },
     mounted: function () {
+      var self = this
       var initOptions = {
-        lang: 'zh-CN'
+        lang: 'zh-CN',
+        placeholder: self.placeholder,
+        height: self.height,
+        minHeight: self.minHeight,
+        maxHeight: self.maxHeight,
+        focus: self.focus,
+        callbacks: {
+          onInit: function () {
+            self.$parent.$emit('onInit')
+          },
+          onEnter: function () {
+            self.$parent.$emit('onEnter')
+          },
+          onFocus: function () {
+            self.$parent.$emit('onFocus')
+          },
+          onBlur: function () {
+            self.$parent.$emit('onBlur')
+          },
+          onKeyup: function (e) {
+            self.$parent.$emit('onKeyup', e)
+          },
+          onKeydown: function (e) {
+            self.$parent.$emit('onKeydown', e)
+          },
+          onPaste: function (e) {
+            self.$parent.$emit('onPaste', e)
+          },
+          onImageUpload: function (files) {
+            self.$parent.$emit('onImageUpload', files)
+          },
+          onChange: function (contents) {
+            self.$parent.$emit('onChange', contents)
+          }
+        }
       }
-      var basicOptions = {
-        placeholder: this.placeholder,
-        height: this.height,
-        minHeight: this.minHeight,
-        maxHeight: this.maxHeight,
-        focus: this.focus,
-        callbacks: this.callbacks
-      }
-      var params = Object.assign({}, initOptions, options, basicOptions)
+      var params = Object.assign({}, initOptions, options)
       $(this.$el).summernote(params)
     },
     beforeDestroy: function () {
@@ -46,8 +71,7 @@ exports.install = function (Vue, options) {
       focus: {
         type: Boolean,
         default: true
-      },
-      callbacks: Object
+      }
     },
     methods: {
       /**

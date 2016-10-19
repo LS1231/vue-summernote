@@ -6,6 +6,7 @@ import Editer from './plugins/editer'
 
 require('bootstrap')
 require('bootstrap/dist/css/bootstrap.min.css')
+require('summernote/dist/summernote.css')
 
 Vue.use(Editer, {
   dialogsFade: true

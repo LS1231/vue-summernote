@@ -31,10 +31,19 @@ npm i vue-summernote -S
 ``` javascript
 import VueSummernote from 'vue-summernote'
 
+// 载入bootstrap.js
 require('bootstrap')
-require('bootstrap/dist/css/bootstrap.min.css')
 
-Vue.use(VueSummernote)
+// 载入bootstrap以及summernote的样式
+// 这里需要你的脚手架工具具有加载css的能力
+require('bootstrap/dist/css/bootstrap.min.css')
+require('summernote/dist/summernote.css')
+
+// 这里设置summernote的初始化选项
+// 可参考 http://summernote.org/deep-dive/#initialization-options
+Vue.use(VueSummernote, {
+  dialogsFade: true
+})
 ```
 
 编辑`webpack.base.conf.js`
@@ -61,30 +70,33 @@ module.exports = {
 ```
 <template>
   <div>
-    <vue-summernote ref="editer" :callbacks="callbacks"></vue-summernote>
-    <button @click="getVal">提交</button>
+    <vue-summernote ref="editer"></vue-summernote>
+    <button @click="setVal">初始化</button>
+    <button @click="getVal">获取</button>
   </div>
 </template>
 
 <script>
-  let $editer
   export default {
-    mounted () {
-      $editer = this.$refs.editer
+    name: 'app',
+    created () {
+      this.$on('onImageUpload', function (files) {
+        // 这里做上传图片的操作，上传成功之后便可以用到下面这句将图片插入到编辑框中
+        this.$refs.editer.run('insertImage', 'http://vuefe.cn/images/logo.png')
+      })
+      this.$on('onChange', function (contents) {
+        // 当富文本框内容发生变化时做什么事
+        console.log('onChange:', contents)
+      })
     },
     methods: {
+      setVal () {
+        // 设置初始值
+        this.$refs.editer.run('code', '这里是富文本的初始值')
+      },
       getVal () {
-        console.log($editer.run('code'))
-      }
-    },
-    data () {
-      return {
-        callbacks: {
-          onImageUpload: function (files) {
-            // 这里做上传图片的操作，上传成功之后便可以用到下面这句将图片插入到编辑框中
-            $editer.run('insertImage', 'http://vuefe.cn/images/logo.png')
-          }
-        }
+        // 获取初始值
+        this.$refs.editer.run('code')
       }
     }
   }
@@ -100,7 +112,24 @@ module.exports = {
 | minHeight   |富文本编辑器最小高度  |  Number  |    200
 | maxHeight   |富文本编辑器最大高度  |  Number  |    700
 | focus   | 富文本编辑器焦点 |  Boolean  |    true
-| callbacks   | 事件回调函数集合[参考summernote文档](http://summernote.org/deep-dive/#callbacks) |  Object  |    无
+
+### Events
+
+
+> events 选项在vue2.0版本被弃用。事件处理器现在在 created 钩子中被注册。
+
+
+| 事件    |  参数
+| :--: |  :--:
+| onInit     |无
+| onEnter      |无
+| onFocus   |无
+| onBlur   |无
+| onKeyup   | event
+| onKeydown   | event
+| onPaste   | event
+| onImageUpload   | files
+| onChange   | contents
 
 ### Mothods
 
