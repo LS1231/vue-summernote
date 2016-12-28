@@ -218,6 +218,10 @@ async-each@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/async-each/-/async-each-1.0.1.tgz#19d386a1d9edc6e7c1c85d388aedbcc56d33602d"
 
+async-validator@^1.6.6:
+  version "1.6.7"
+  resolved "https://registry.yarnpkg.com/async-validator/-/async-validator-1.6.7.tgz#345162bdb54f3d653f07cd1ac076bbb517e53a2e"
+
 async@^0.9.0, async@~0.9.0:
   version "0.9.2"
   resolved "https://registry.yarnpkg.com/async/-/async-0.9.2.tgz#aea74d5e61c1f899613bf64bda66d4c78f2fd17d"
@@ -424,6 +428,10 @@ babel-helper-replace-supers@^6.14.0, babel-helper-replace-supers@^6.8.0:
     babel-template "^6.16.0"
     babel-traverse "^6.16.0"
     babel-types "^6.16.0"
+
+babel-helper-vue-jsx-merge-props@^2.0.0:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/babel-helper-vue-jsx-merge-props/-/babel-helper-vue-jsx-merge-props-2.0.2.tgz#aceb1c373588279e2755ea1cfd35c22394fd33f8"
 
 babel-helpers@^6.16.0:
   version "6.16.0"
@@ -1564,6 +1572,10 @@ deep-is@~0.1.3:
   version "0.1.3"
   resolved "https://registry.yarnpkg.com/deep-is/-/deep-is-0.1.3.tgz#b369d6fb5dbc13eecf524f91b070feedc357cf34"
 
+deepmerge@^1.2.0:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/deepmerge/-/deepmerge-1.3.1.tgz#682ba92402574115b865edce525665814296a39b"
+
 defined@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/defined/-/defined-1.0.0.tgz#c98d9bcef75674188e110969151199e39b1fa693"
@@ -1736,6 +1748,17 @@ ee-first@1.1.1:
 ejs@~0.8.3:
   version "0.8.8"
   resolved "https://registry.yarnpkg.com/ejs/-/ejs-0.8.8.tgz#ffdc56dcc35d02926dd50ad13439bbc54061d598"
+
+element-ui:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/element-ui/-/element-ui-1.0.9.tgz#285ead72666908a64a2496f76884d6a4825843b0"
+  dependencies:
+    async-validator "^1.6.6"
+    babel-helper-vue-jsx-merge-props "^2.0.0"
+    deepmerge "^1.2.0"
+    throttle-debounce "^1.0.1"
+    vue-popup "^0.2.14"
+    wind-dom "0.0.3"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -5295,6 +5318,10 @@ text-table@^0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
 
+throttle-debounce@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/throttle-debounce/-/throttle-debounce-1.0.1.tgz#dad0fe130f9daf3719fdea33dc36a8e6ba7f30b5"
+
 throttleit@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/throttleit/-/throttleit-1.0.0.tgz#9e785836daf46743145a5984b6268d828528ac6c"
@@ -5566,6 +5593,12 @@ vue-loader@^9.4.0:
     vue-template-compiler "^2.0.0-rc.3"
     vue-template-es2015-compiler "^1.0.0"
 
+vue-popup@^0.2.14:
+  version "0.2.14"
+  resolved "https://registry.yarnpkg.com/vue-popup/-/vue-popup-0.2.14.tgz#aa3d461c6f2ab01ef4546665d730395ec6028302"
+  dependencies:
+    wind-dom "0.0.3"
+
 vue-style-loader@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-1.0.0.tgz#abeb7bd0f46313083741244d3079d4f14449e049"
@@ -5671,6 +5704,10 @@ wide-align@^1.1.0:
   resolved "https://registry.yarnpkg.com/wide-align/-/wide-align-1.1.0.tgz#40edde802a71fea1f070da3e62dcda2e7add96ad"
   dependencies:
     string-width "^1.0.1"
+
+wind-dom@0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/wind-dom/-/wind-dom-0.0.3.tgz#3456e3d959dbebdcbf76ca68c6a4e8142f26360f"
 
 window-size@^0.1.2:
   version "0.1.4"

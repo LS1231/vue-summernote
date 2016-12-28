@@ -1,6 +1,11 @@
 <template>
   <div>
-    <vue-summernote ref="editer"></vue-summernote>
+    <el-row :gutter="100">
+      <el-col :span="24">
+        <vue-summernote ref="editer"></vue-summernote>
+        <vue-summernote ref="editer1"></vue-summernote>
+      </el-col>
+    </el-row>
     <button @click="getVal">按钮</button>
   </div>
 </template>
@@ -8,18 +13,25 @@
 <script>
   export default {
     name: 'app',
-    created () {
-      this.$on('onImageUpload', function (files) {
+    mounted () {
+      const self = this
+      const editer = self.$refs.editer
+      const editer1 = self.$refs.editer1
+      editer.$on('onImageUpload', function (files) {
         console.log(files)
-        this.$refs.editer.run('insertImage', 'http://vuefe.cn/images/logo.png')
+        editer.run('insertImage', 'http://vuefe.cn/images/logo.png')
       })
-      this.$on('onChange', function (contents) {
+      editer.$on('onChange', function (contents) {
         console.log('onChange:', contents)
+      })
+      editer1.$on('onImageUpload', function (files) {
+        console.log(files)
+        editer1.run('insertImage', 'http://vuefe.cn/images/logo.png')
       })
     },
     methods: {
       getVal () {
-        this.$refs.editer.run('code', '321937913916')
+        this.$refs.editer.run('code', 'test text')
       }
     }
   }

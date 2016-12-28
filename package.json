@@ -29,6 +29,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "codemirror": "^5.19.0",
+    "element-ui": "^1.0.9",
     "jquery": "2.1.4",
     "summernote": "^0.8.2"
   },
@@ -46,6 +47,7 @@
     "connect-history-api-fallback": "^1.1.0",
     "cross-spawn": "^4.0.2",
     "css-loader": "^0.25.0",
+    "cz-conventional-changelog": "^1.2.0",
     "eslint": "^3.7.1",
     "eslint-config-standard": "^6.1.0",
     "eslint-friendly-formatter": "^2.0.5",
@@ -89,5 +91,10 @@
     "webpack-dev-middleware": "^1.8.3",
     "webpack-hot-middleware": "^2.12.2",
     "webpack-merge": "^0.14.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

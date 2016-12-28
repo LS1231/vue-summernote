@@ -17,31 +17,31 @@ exports.install = function (Vue, options) {
         focus: self.focus,
         callbacks: {
           onInit: function () {
-            self.$parent.$emit('onInit')
+            self.$emit('onInit')
           },
           onEnter: function () {
-            self.$parent.$emit('onEnter')
+            self.$emit('onEnter')
           },
           onFocus: function () {
-            self.$parent.$emit('onFocus')
+            self.$emit('onFocus')
           },
           onBlur: function () {
-            self.$parent.$emit('onBlur')
+            self.$emit('onBlur')
           },
           onKeyup: function (e) {
-            self.$parent.$emit('onKeyup', e)
+            self.$emit('onKeyup', e)
           },
           onKeydown: function (e) {
-            self.$parent.$emit('onKeydown', e)
+            self.$emit('onKeydown', e)
           },
           onPaste: function (e) {
-            self.$parent.$emit('onPaste', e)
+            self.$emit('onPaste', e)
           },
           onImageUpload: function (files) {
-            self.$parent.$emit('onImageUpload', files)
+            self.$emit('onImageUpload', files)
           },
           onChange: function (contents) {
-            self.$parent.$emit('onChange', contents)
+            self.$emit('onChange', contents)
           }
         }
       }
