@@ -42,7 +42,7 @@ require('summernote/dist/summernote.css')
 // 这里设置summernote的初始化选项
 // 可参考 http://summernote.org/deep-dive/#initialization-options
 Vue.use(VueSummernote, {
-dialogsFade: true
+  dialogsFade: true
 })
 ```
 
@@ -55,59 +55,59 @@ var webpack = require('webpack')
 var jquery = require('jquery')
 
 module.exports = {
-plugins: [
-new webpack.ProvidePlugin({
-$: "jquery",
-jQuery: "jquery"
-})
-]
+  plugins: [
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery"
+    })
+  ]
 }
 ```
 
 ### Examples
 
-```
+```vue
 <template>
 <div>
-<el-row :gutter="100">
-<vue-summernote ref="editer"></vue-summernote>
-<vue-summernote ref="editer1"></vue-summernote>
-</el-row>
-<button @click="setVal">初始化</button>
-<button @click="getVal">获取</button>
+  <el-row :gutter="100">
+    <vue-summernote ref="editer"></vue-summernote>
+    <vue-summernote ref="editer1"></vue-summernote>
+  </el-row>
+  <button @click="setVal">初始化</button>
+  <button @click="getVal">获取</button>
 </div>
 </template>
 
 <script>
 export default {
-name: 'app',
-mounted () {
-const self = this
-const editer = self.$refs.editer
-const editer1 = self.$refs.editer1
-editer.$on('onImageUpload', function (files) {
-// 这里做上传图片的操作，上传成功之后便可以用到下面这句将图片插入到编辑框中
-editer.run('insertImage', 'http://vuefe.cn/images/logo.png')
-})
-editer.$on('onChange', function (contents) {
-// 当富文本框内容发生变化时做什么事
-console.log('onChange:', contents)
-})
-editer1.$on('onImageUpload', function (files) {
-// 这里做上传图片的操作，上传成功之后便可以用到下面这句将图片插入到编辑框中
-editer1.run('insertImage', 'http://vuefe.cn/images/logo.png')
-})
-},
-methods: {
-setVal () {
-// 设置初始值
-this.$refs.editer.run('code', '这里是富文本的初始值')
-},
-getVal () {
-// 获取初始值
-this.$refs.editer.run('code')
-}
-}
+  name: 'app',
+  mounted () {
+    const self = this
+    const editer = self.$refs.editer
+    const editer1 = self.$refs.editer1
+    editer.$on('onImageUpload', function (files) {
+      // 这里做上传图片的操作，上传成功之后便可以用到下面这句将图片插入到编辑框中
+      editer.run('insertImage', 'http://vuefe.cn/images/logo.png')
+    })
+    editer.$on('onChange', function (contents) {
+      // 当富文本框内容发生变化时做什么事
+      console.log('onChange:', contents)
+    })
+    editer1.$on('onImageUpload', function (files) {
+      // 这里做上传图片的操作，上传成功之后便可以用到下面这句将图片插入到编辑框中
+      editer1.run('insertImage', 'http://vuefe.cn/images/logo.png')
+    })
+  },
+  methods: {
+    setVal () {
+      // 设置初始值
+      this.$refs.editer.run('code', '这里是富文本的初始值')
+    },
+    getVal () {
+      // 获取初始值
+      this.$refs.editer.run('code')
+    }
+  }
 }
 </script>
 ```
