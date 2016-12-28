@@ -28,8 +28,6 @@
   "homepage": "https://github.com/LS1231/vue-summernote#readme",
   "dependencies": {
     "bootstrap": "^3.3.7",
-    "codemirror": "^5.19.0",
-    "element-ui": "^1.0.9",
     "jquery": "2.1.4",
     "summernote": "^0.8.2"
   },
@@ -44,6 +42,7 @@
     "babel-register": "^6.0.0",
     "chai": "^3.5.0",
     "chromedriver": "^2.21.2",
+    "codemirror": "^5.19.0",
     "connect-history-api-fallback": "^1.1.0",
     "cross-spawn": "^4.0.2",
     "css-loader": "^0.25.0",
